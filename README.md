@@ -1,5 +1,7 @@
 # emc-rf-calculator
-This is a personnal project which aims to help me work faster in electromagnetic compatibility job.
+This is a personnal project which aims to help me work faster in electromagnetic compatibility job.<br>
+This is the first time i'll make a program that tries to be professional. So if you're passing by this repo<br>
+do not hesitate to give feedback !
 
 ### It should contain:
   - Linear / Logarithm conversions
