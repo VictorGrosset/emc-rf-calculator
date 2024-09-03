@@ -1,6 +1,5 @@
 # emc-rf-calculator
 This is a personnal project which aims to help me work faster in electromagnetic compatibility job.
-The Readme will be updated a bit later
 
 ### It should contain:
   - Linear / Logarithm conversions
@@ -16,3 +15,5 @@ The Readme will be updated a bit later
   
   
 ## This project is the occasion for me to actively and seriously learn Rust associated with Slint UI framework. Except a long time of development as I do this on spare time, which I don't have a lot.
+
+  PS: The Readme will be updated along the advancement of my project
