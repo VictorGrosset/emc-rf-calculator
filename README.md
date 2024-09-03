@@ -5,7 +5,7 @@ It is my very first attempt at creating a professional-grade application. Feedba
 ## Features
   - #### Linear/Logarithmic conversions
   - #### Plotting limit
-  - #### Extrapolation values<br>
+  - #### Extrapolation values
     - from Linear and/or Logarithm values for custom customers limit
   - #### More features to be added later
 
