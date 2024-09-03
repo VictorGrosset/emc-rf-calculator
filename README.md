@@ -1,21 +1,28 @@
-# emc-rf-calculator
-This is a personnal project which aims to help me work faster in electromagnetic compatibility job.<br>
-This is the first time i'll make a program that tries to be professional. So if you're passing by this repo<br>
-do not hesitate to give feedback !
+# Electromagnetic compatibility radiofrequency calculator/helper
 
-### It should contain:
-  - Linear / Logarithm conversions
-  - Plotting limit
-  - Extrapolate values from Linear And / Or Logarithm values for custom customers limit
-  - More to be added later
+## Project Overview
+It is my very first attempt at creating a professional-grade application. Feedback is higly appreciated and valuable for me. 
+## Features
+  - #### Linear/Logarithmic conversions
+  - #### Plotting limit
+  - #### Extrapolation values<br>
+    - from Linear and/or Logarithm values for custom customers limit
+  - #### More features to be added later
 
-### In this endeavor:
-  - I'll make a responsive UI
-  - I'll make cool signals associated with custom callback for pleasing UI experience
-  - I'll start by making the app english only at first but later i'll add at least english language
-  - All the logic will be handle in Rust while the UI will be using .slint files (Slint declarative language)
+## Development goals
+  - #### Responsive UI
+    - Create an interface that adapts well to different screen size
+  - #### Pleasant User Interface
+    - Implementing cool signals with custom callback for an engaging UI experience
+  - #### Localization
+    - Initially, the app will be english only, but additional languages will be added.
+  - #### Technology Stack
+    - All the application logic will be written in Rust
+    - The UI will be developed using Slint framework
+
+## Learning journey
+
+This project is an opportunity to deeply learn Rust and Slint framework associated with project management with GitHub. Since i'm working on this project on my spare time (which I don't have much), progress may be slow. 
   
-  
-## This project is the occasion for me to actively and seriously learn Rust associated with Slint UI framework. Except a long time of development as I do this on spare time, which I don't have a lot.
-
-  PS: The Readme will be updated along the advancement of my project
+## Note
+Readme will be updated as project progresses
