@@ -1,0 +1,70 @@
+import {VerticalBox, Button, LineEdit} from "std-widgets.slint";
+
+component labeledTextInput inherits VerticalBox {
+    in property <string> label-text;
+    in-out property <string> input-value;
+
+    callback edited-value(string);
+    
+    Text {
+        text: label-text;
+        color: white;
+    }
+
+    LineEdit {
+        text <=> input-value;
+
+        accepted => {
+            if(self.text.is-float()) {
+                input-value = self.text;
+                edited-value(input-value);
+            }else {
+                debug("Text is not convertible to float");
+            }
+        }   
+    }
+}
+
+export component AppWindow inherits Window {
+    title: "RF Calc tool";
+
+    function update-from-dbuv(value: string) {
+        if (value.is-float()) {
+            debug("dbuv-value" + value);
+            input-dbmw.input-value = (value.to-float() - 107);
+            debug("conversion from dbuv " + input-dbmw.input-value)
+        } else {
+            debug("Wrong formatting")
+        }
+    }
+
+    function update-from-dbmw(value: string) {
+        if (value.is-float()) {
+            debug("dbmw-value" + value);
+            input-dbuv.input-value = value.to-float() + 107;
+            debug("conversion from dbmw " + input-dbuv.input-value)
+        } else {
+            debug("Wrong formatting")
+        }
+    }
+
+    GridLayout {
+        input-dbuv := labeledTextInput {
+            label-text: "dBµV";
+
+            edited-value(value) => {
+                update-from-dbuv(value);               
+            } 
+        }
+
+        input-dbmw := labeledTextInput {
+            label-text: "dBmW";
+
+            edited-value(value) => {
+                update-from-dbmw(value);
+                }
+        }
+    }
+}
+
+

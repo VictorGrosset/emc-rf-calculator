@@ -1,0 +1,14 @@
+import { TabWidget } from "std-widgets.slint";
+import { electrical_conversions_tab } from "electrical_conversions.slint";
+
+export component AppWindow inherits Window {
+    title: "Test Window name";
+    icon: @image-url("../ressources/sine-curve.svg");
+    
+    TabWidget {
+        Tab {
+            title: "Test tab1";
+            electrical-conversions-tab {}
+            }
+        }
+}

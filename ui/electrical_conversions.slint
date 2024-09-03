@@ -1,0 +1,128 @@
+import { LineEdit, SpinBox, ComboBox } from "std-widgets.slint";
+
+component labeledTextInput inherits Rectangle {
+    
+    in property <string> label_text: "dBµV";
+    in-out property <string> input_value: "107.69";
+
+    callback value_changed(string);
+    
+    padding: 50px;
+    border-color: #008cff8a;
+    border-width: 1px;
+    border-radius: 10px;
+    background: #000000;
+    height: 50px;
+    
+    HorizontalLayout {
+        alignment: LayoutAlignment.stretch;
+        spacing: 20px;
+        LineEdit {
+            text <=> input_value;
+            input-type: decimal;
+            horizontal-alignment: center;
+            width: 100px;
+    
+            edited => {
+                debug("test")
+            }
+        }
+        Text {
+            text: label_text;
+            width: 100px;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }    
+    }    
+}
+
+component waveforSelector inherits Rectangle {
+    
+    in-out property <string> icon_path;
+    in-out property <int> index;
+    in-out property <string> name;
+
+    callback waveform_selected(int);
+
+    Rectangle {
+        background: #ff00ea;
+        HorizontalLayout {
+            ComboBox {
+                current-index <=> index;
+                model: ["Sine Wave", "Square Wave", "Triangle Wave"];
+
+                selected => {
+                    waveform_selected(index);
+                }
+            }            
+            i := Image {
+                // source <=> icon_path;
+                // source: @image-url("../ressources/sine-curve.svg");
+                width: 400px;
+            }
+            Text {
+                width: 200px;
+                text <=> name;
+            }
+        }    
+    }    
+}
+
+
+
+export component electrical_conversions_tab {
+    function foo(index: int) {
+        ws.name = index;
+        debug(ws.name);
+        debug(ws.icon_path);
+        if (index == 0) {
+            ws.icon_path = "../ressources/sine-curve.svg";
+        }
+        else if (index == 1) {
+            ws.icon_path = "../ressources/square-curve.svg";
+        }
+        else {
+            ws.icon_path = "../ressources/triangle-curve.svg";
+        }
+        debug(ws.icon_path);
+        
+    }
+    Rectangle {
+        padding: 100px;
+        background: #00ff37;
+
+        GridLayout {
+
+            spacing: 20px;
+            // z := impedanceSelector{
+
+            // }
+            ws := waveforSelector {
+                row: 0;
+                colspan: 2;
+                waveform_selected(index) => {
+                    foo(index);
+                }
+            }
+    
+            input_dbv := labeledTextInput {row: 1; col: 0; label_text: "dBV";}
+            input_dba := labeledTextInput{row: 1; col: 1; label_text: "dBµA";}
+            input_dbw := labeledTextInput {row: 1; col: 2; label_text: "dBW";}
+            input_dbuv := labeledTextInput {row: 2; col: 0; label_text: "dBµV";}
+            input_dbua := labeledTextInput{row: 2; col: 1; label_text: "dBµA";}
+            input_dbmw := labeledTextInput {row: 2; col: 2; label_text: "dBmW";}
+            input_v := labeledTextInput {row: 3; col: 0; label_text: "Volt";}
+            input_a := labeledTextInput{row: 3; col: 1; label_text: "Ampere";}
+            input_w := labeledTextInput {row: 3; col: 2; label_text: "Watt";}
+            input_mv := labeledTextInput {row: 4; col: 0; label_text: "mV";}
+            input_ma := labeledTextInput{row: 4; col: 1; label_text: "mA";}
+            input_mw := labeledTextInput {row: 4; col: 2; label_text: "mW";}
+            input_uv := labeledTextInput {row: 5; col: 0; label_text: "µV";}
+            input_ua := labeledTextInput{row: 5; col: 1; label_text: "µA";}
+            input_uw := labeledTextInput {row: 5; col: 2; label_text: "µW";}
+    
+        }
+    }
+    
+    
+}
